@@ -40,13 +40,13 @@ const Navigation = () => {
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Magnet padding={50} magnetStrength={4}>
-            <a href="#" className="text-lg font-bold">
-              <GradientText
-                colors={['#a855f7', '#6366f1', '#a855f7']}
-                animationSpeed={4}
-              >
-                AM
-              </GradientText>
+            <a href="#" className="group relative">
+              <div className="flex items-center gap-1">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 via-indigo-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-white font-bold text-sm">&lt;/&gt;</span>
+                </div>
+                <span className="text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">dev</span>
+              </div>
             </a>
           </Magnet>
 
