@@ -1,6 +1,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Github, ExternalLink } from 'lucide-react';
+import BlurText from '@/components/effects/BlurText';
+import ScrollReveal from '@/components/effects/ScrollReveal';
+import TiltCard from '@/components/effects/TiltCard';
+import Magnet from '@/components/effects/Magnet';
 
 const featuredProjects = [
   {
@@ -65,82 +69,100 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground text-center">
-          Featured Projects
-        </h2>
-        <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-          Selected projects demonstrating backend development, security engineering, and systems programming.
-        </p>
+        <BlurText
+          text="Featured Projects"
+          className="text-3xl md:text-4xl font-bold mb-4 text-foreground justify-center"
+          delay={100}
+          animateBy="words"
+        />
+        <ScrollReveal>
+          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+            Selected projects demonstrating backend development, security engineering, and systems programming.
+          </p>
+        </ScrollReveal>
         
         <div className="grid gap-8 mb-16">
-          {featuredProjects.map((project) => (
-            <Card key={project.title} className="bg-card/60 border-border backdrop-blur-sm">
-              <CardHeader>
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
-                    <CardDescription className="text-base">
-                      {project.description}
-                    </CardDescription>
-                  </div>
-                  <Button variant="outline" size="icon" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
-                      <Github className="w-4 h-4" />
-                    </a>
-                  </Button>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="grid md:grid-cols-3 gap-6 mb-6">
-                  <div>
-                    <h4 className="font-semibold text-sm text-foreground mb-2">Problem</h4>
-                    <p className="text-sm text-muted-foreground">{project.problem}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-sm text-foreground mb-2">Solution</h4>
-                    <p className="text-sm text-muted-foreground">{project.solution}</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-sm text-foreground mb-2">What I Learned</h4>
-                    <p className="text-sm text-muted-foreground">{project.learned}</p>
-                  </div>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 text-xs bg-secondary/50 text-secondary-foreground border border-border"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
+          {featuredProjects.map((project, index) => (
+            <ScrollReveal key={project.title} delay={index * 0.1}>
+              <TiltCard 
+                className="bg-card/60 border border-border backdrop-blur-sm rounded-lg overflow-hidden"
+                tiltAmount={3}
+                glareMaxOpacity={0.08}
+              >
+                <Card className="bg-transparent border-0 shadow-none">
+                  <CardHeader>
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
+                        <CardDescription className="text-base">
+                          {project.description}
+                        </CardDescription>
+                      </div>
+                      <Magnet padding={50} magnetStrength={4}>
+                        <Button variant="outline" size="icon" asChild>
+                          <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label="View on GitHub">
+                            <Github className="w-4 h-4" />
+                          </a>
+                        </Button>
+                      </Magnet>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid md:grid-cols-3 gap-6 mb-6">
+                      <div>
+                        <h4 className="font-semibold text-sm text-foreground mb-2">Problem</h4>
+                        <p className="text-sm text-muted-foreground">{project.problem}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-sm text-foreground mb-2">Solution</h4>
+                        <p className="text-sm text-muted-foreground">{project.solution}</p>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-sm text-foreground mb-2">What I Learned</h4>
+                        <p className="text-sm text-muted-foreground">{project.learned}</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-1 text-xs bg-secondary/50 text-secondary-foreground border border-border hover:bg-primary/20 transition-colors"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              </TiltCard>
+            </ScrollReveal>
           ))}
         </div>
 
-        <h3 className="text-2xl font-bold mb-6 text-foreground">Other Projects</h3>
+        <ScrollReveal>
+          <h3 className="text-2xl font-bold mb-6 text-foreground">Other Projects</h3>
+        </ScrollReveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {otherProjects.map((project) => (
-            <a
-              key={project.name}
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-4 bg-card/40 border border-border hover:bg-card/60 transition-colors group"
-            >
-              <div className="flex items-center justify-between mb-2">
-                <h4 className="font-medium text-foreground group-hover:text-primary transition-colors">
-                  {project.name}
-                </h4>
-                <ExternalLink className="w-4 h-4 text-muted opacity-0 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <p className="text-sm text-muted-foreground mb-2">{project.description}</p>
-              <span className="text-xs px-2 py-0.5 bg-secondary/30 text-secondary-foreground">
-                {project.tech}
-              </span>
-            </a>
+          {otherProjects.map((project, index) => (
+            <ScrollReveal key={project.name} delay={index * 0.05}>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-4 bg-card/40 border border-border hover:bg-card/60 hover:border-primary/50 transition-all duration-300 group"
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <h4 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                    {project.name}
+                  </h4>
+                  <ExternalLink className="w-4 h-4 text-muted opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <p className="text-sm text-muted-foreground mb-2">{project.description}</p>
+                <span className="text-xs px-2 py-0.5 bg-secondary/30 text-secondary-foreground">
+                  {project.tech}
+                </span>
+              </a>
+            </ScrollReveal>
           ))}
         </div>
       </div>
