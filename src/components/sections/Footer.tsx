@@ -47,7 +47,7 @@ const Footer = () => {
 
         <div className="mt-8 pt-6 border-t border-border text-center">
           <p className="text-sm text-muted">
-            © {new Date().getFullYear()} Amitabh Morey. Built with React & Three.js
+            © 2026 Amitabh Morey
           </p>
         </div>
       </div>

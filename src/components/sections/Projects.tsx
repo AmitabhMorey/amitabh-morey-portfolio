@@ -144,21 +144,21 @@ const Projects = () => {
         </ScrollReveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {otherProjects.map((project, index) => (
-            <ScrollReveal key={project.name} delay={index * 0.05}>
+            <ScrollReveal key={project.name} delay={index * 0.05} className="h-full">
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-4 bg-card/40 border border-border hover:bg-card/60 hover:border-primary/50 transition-all duration-300 group"
+                className="flex flex-col h-full p-4 bg-card/40 border border-border hover:bg-card/60 hover:border-primary/50 transition-all duration-300 group"
               >
                 <div className="flex items-center justify-between mb-2">
-                  <h4 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                  <h4 className="font-medium text-foreground group-hover:text-primary transition-colors line-clamp-1">
                     {project.name}
                   </h4>
-                  <ExternalLink className="w-4 h-4 text-muted opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ExternalLink className="w-4 h-4 text-muted opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                 </div>
-                <p className="text-sm text-muted-foreground mb-2">{project.description}</p>
-                <span className="text-xs px-2 py-0.5 bg-secondary/30 text-secondary-foreground">
+                <p className="text-sm text-muted-foreground mb-2 flex-grow line-clamp-2">{project.description}</p>
+                <span className="text-xs px-2 py-0.5 bg-secondary/30 text-secondary-foreground w-fit">
                   {project.tech}
                 </span>
               </a>
