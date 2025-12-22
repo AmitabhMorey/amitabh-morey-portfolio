@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Magnet from '@/components/effects/Magnet';
+import GradientText from '@/components/effects/GradientText';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -37,21 +39,30 @@ const Navigation = () => {
     >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <a href="#" className="text-lg font-bold text-foreground">
-            AM
-          </a>
+          <Magnet padding={50} magnetStrength={4}>
+            <a href="#" className="text-lg font-bold">
+              <GradientText
+                colors={['#a855f7', '#6366f1', '#a855f7']}
+                animationSpeed={4}
+              >
+                AM
+              </GradientText>
+            </a>
+          </Magnet>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
+              <Magnet key={link.href} padding={30} magnetStrength={5}>
+                <a
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors relative group"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </a>
+              </Magnet>
             ))}
           </div>
 
