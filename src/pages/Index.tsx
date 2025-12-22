@@ -18,11 +18,11 @@ const Index = () => {
     <ClickSpark sparkColor="hsl(270, 70%, 60%)" sparkCount={12} sparkRadius={25} duration={500}>
       <div className="min-h-screen bg-background text-foreground">
         <SplashCursor 
-          DENSITY_DISSIPATION={4}
-          VELOCITY_DISSIPATION={2.5}
-          SPLAT_RADIUS={0.15}
-          SPLAT_FORCE={4000}
-          CURL={5}
+          DENSITY_DISSIPATION={6}
+          VELOCITY_DISSIPATION={4}
+          SPLAT_RADIUS={0.08}
+          SPLAT_FORCE={2000}
+          CURL={3}
         />
         <Suspense fallback={null}>
           <Scene />
