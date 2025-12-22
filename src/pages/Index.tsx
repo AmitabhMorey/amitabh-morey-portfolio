@@ -7,27 +7,38 @@ import Projects from '@/components/sections/Projects';
 import GitHub from '@/components/sections/GitHub';
 import Career from '@/components/sections/Career';
 import Footer from '@/components/sections/Footer';
+import ClickSpark from '@/components/effects/ClickSpark';
+import SplashCursor from '@/components/effects/SplashCursor';
 
 // Lazy load Three.js scene to improve initial load
 const Scene = lazy(() => import('@/components/three/Scene'));
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Suspense fallback={null}>
-        <Scene />
-      </Suspense>
-      <Navigation />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <GitHub />
-        <Career />
-      </main>
-      <Footer />
-    </div>
+    <ClickSpark sparkColor="hsl(270, 70%, 60%)" sparkCount={12} sparkRadius={25} duration={500}>
+      <div className="min-h-screen bg-background text-foreground">
+        <SplashCursor 
+          DENSITY_DISSIPATION={4}
+          VELOCITY_DISSIPATION={2.5}
+          SPLAT_RADIUS={0.15}
+          SPLAT_FORCE={4000}
+          CURL={5}
+        />
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
+        <Navigation />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <GitHub />
+          <Career />
+        </main>
+        <Footer />
+      </div>
+    </ClickSpark>
   );
 };
 
