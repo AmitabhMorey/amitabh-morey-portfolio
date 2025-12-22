@@ -1,73 +1,138 @@
-# Welcome to your Lovable project
+# Amitabh Morey | Software Engineering Portfolio
 
-## Project info
+A modern, interactive developer portfolio built with React, Three.js, and beautiful animations. Features a dark theme with fluid cursor effects, 3D particle backgrounds, and smooth scroll animations.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+![Portfolio Preview](https://img.shields.io/badge/React-18.3-61DAFB?style=flat&logo=react)
+![Three.js](https://img.shields.io/badge/Three.js-0.160-black?style=flat&logo=three.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=flat&logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38B2AC?style=flat&logo=tailwind-css)
 
-## How can I edit this code?
+## ✨ Features
 
-There are several ways of editing your application.
+- **3D Background** - Interactive particle field and floating geometry using Three.js
+- **Fluid Cursor** - WebGL-powered splash cursor effect that responds to mouse movement
+- **Click Sparks** - Animated spark effects on click interactions
+- **Scroll Animations** - Smooth reveal animations triggered on scroll
+- **Gradient Text** - Animated gradient effects on headings
+- **Magnet Effect** - Interactive hover effect on buttons and links
+- **Tilt Cards** - 3D perspective tilt with glare on project cards
+- **Blur Text** - Animated text reveal with blur-to-focus effect
+- **Fully Responsive** - Optimized for all device sizes
+- **Dark Theme** - Professional obsidian-inspired color scheme
 
-**Use Lovable**
+## 🛠️ Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+- **Frontend:** React 18, TypeScript, Vite
+- **3D Graphics:** Three.js, React Three Fiber, React Three Drei
+- **Styling:** Tailwind CSS, shadcn/ui
+- **Animations:** Motion (Framer Motion), Custom WebGL shaders
+- **Build:** Vite, ESBuild
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📂 Project Structure
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+├── components/
+│   ├── effects/          # Animation components
+│   │   ├── BlurText.tsx
+│   │   ├── ClickSpark.tsx
+│   │   ├── GradientText.tsx
+│   │   ├── Magnet.tsx
+│   │   ├── ScrollReveal.tsx
+│   │   ├── SplashCursor.tsx
+│   │   └── TiltCard.tsx
+│   ├── sections/         # Page sections
+│   │   ├── About.tsx
+│   │   ├── Career.tsx
+│   │   ├── Footer.tsx
+│   │   ├── GitHub.tsx
+│   │   ├── Hero.tsx
+│   │   ├── Projects.tsx
+│   │   └── Skills.tsx
+│   ├── three/            # Three.js components
+│   │   ├── FloatingGeometry.tsx
+│   │   ├── ParticleField.tsx
+│   │   └── Scene.tsx
+│   └── ui/               # shadcn/ui components
+├── pages/
+│   └── Index.tsx
+└── index.css             # Design system tokens
 ```
 
-**Edit a file directly in GitHub**
+## 🚀 Getting Started
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Prerequisites
 
-**Use GitHub Codespaces**
+- Node.js 18+ or Bun
+- npm, yarn, or bun
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Installation
 
-## What technologies are used for this project?
+```bash
+# Clone the repository
+git clone https://github.com/AmitabhMorey/portfolio.git
 
-This project is built with:
+# Navigate to directory
+cd portfolio
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Install dependencies
+npm install
+# or
+bun install
 
-## How can I deploy this project?
+# Start development server
+npm run dev
+# or
+bun dev
+```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+Open [http://localhost:5173](http://localhost:5173) to view the portfolio.
 
-## Can I connect a custom domain to my Lovable project?
+### Build for Production
 
-Yes, you can!
+```bash
+npm run build
+# or
+bun run build
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📄 Sections
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+| Section | Description |
+|---------|-------------|
+| **Hero** | Introduction with animated name, tagline, and tech stack |
+| **About** | Background and engineering philosophy |
+| **Skills** | Technical skills categorized by type |
+| **Projects** | Featured projects with problem/solution/learnings |
+| **GitHub** | GitHub stats and open source activity |
+| **Career** | Career interests and target roles |
+
+## 🎨 Customization
+
+### Colors
+Edit `src/index.css` to customize the color scheme. The portfolio uses HSL-based CSS variables for theming.
+
+### Content
+Update the data arrays in each section component under `src/components/sections/` to personalize the content.
+
+### Effects
+Adjust animation parameters in the effect components under `src/components/effects/` to fine-tune the visual experience.
+
+## 📱 Performance
+
+- Lazy-loaded Three.js scene to reduce initial bundle size
+- Optimized WebGL shaders for smooth 60fps animations
+- Responsive images and efficient asset loading
+- Lighthouse score optimized
+
+## 📜 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🤝 Connect
+
+- **GitHub:** [AmitabhMorey](https://github.com/AmitabhMorey)
+
+---
+
+Built with ❤️ using [Lovable](https://lovable.dev)
