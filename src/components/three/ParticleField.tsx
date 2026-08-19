@@ -6,7 +6,7 @@ interface ParticleFieldProps {
   count?: number;
 }
 
-const ParticleField = ({ count = 2000 }: ParticleFieldProps) => {
+const ParticleField = ({ count = 800 }: ParticleFieldProps) => {
   const mesh = useRef<THREE.Points>(null);
 
   const particles = useMemo(() => {
@@ -15,14 +15,14 @@ const ParticleField = ({ count = 2000 }: ParticleFieldProps) => {
     
     for (let i = 0; i < count; i++) {
       const i3 = i * 3;
-      positions[i3] = (Math.random() - 0.5) * 50;
-      positions[i3 + 1] = (Math.random() - 0.5) * 50;
-      positions[i3 + 2] = (Math.random() - 0.5) * 50;
+      positions[i3] = (Math.random() - 0.5) * 45;
+      positions[i3 + 1] = (Math.random() - 0.5) * 45;
+      positions[i3 + 2] = (Math.random() - 0.5) * 45;
       
-      // Subtle blue-gray tones
-      colors[i3] = 0.4 + Math.random() * 0.2;
-      colors[i3 + 1] = 0.5 + Math.random() * 0.2;
-      colors[i3 + 2] = 0.7 + Math.random() * 0.2;
+      // Subtle purple-blue hues
+      colors[i3] = 0.5 + Math.random() * 0.2;
+      colors[i3 + 1] = 0.4 + Math.random() * 0.2;
+      colors[i3 + 2] = 0.8 + Math.random() * 0.2;
     }
     
     return { positions, colors };
@@ -30,8 +30,7 @@ const ParticleField = ({ count = 2000 }: ParticleFieldProps) => {
 
   useFrame((state) => {
     if (mesh.current) {
-      mesh.current.rotation.x = state.clock.elapsedTime * 0.02;
-      mesh.current.rotation.y = state.clock.elapsedTime * 0.03;
+      mesh.current.rotation.y = state.clock.elapsedTime * 0.02;
     }
   });
 
@@ -52,10 +51,10 @@ const ParticleField = ({ count = 2000 }: ParticleFieldProps) => {
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.08}
+        size={0.06}
         vertexColors
         transparent
-        opacity={0.6}
+        opacity={0.5}
         sizeAttenuation
       />
     </points>

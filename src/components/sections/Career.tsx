@@ -1,44 +1,44 @@
-import { Target, Code, Shield, Server } from 'lucide-react';
+import { ShieldAlert, Code, ShieldCheck, Server, Terminal, Lock } from 'lucide-react';
 import BlurText from '@/components/effects/BlurText';
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import TiltCard from '@/components/effects/TiltCard';
 
 const careerDirections = [
   {
-    icon: Shield,
-    title: 'Security Engineering',
-    description: 'Experience building security scanners, encryption systems, and authentication platforms positions me well for security-focused roles.',
+    icon: ShieldAlert,
+    title: 'Penetration Testing & Red Teaming',
+    description: 'Specializing in web application penetration testing, Active Directory attack paths, network vulnerability assessments, and threat simulations under PTES & MITRE ATT&CK frameworks.',
+  },
+  {
+    icon: Lock,
+    title: 'Security Engineering & AppSec',
+    description: 'Applying cryptographic architecture (AES-256), multi-factor authentication, secure API design, and code-level vulnerability auditing to harden modern applications.',
   },
   {
     icon: Server,
-    title: 'Backend Development',
-    description: 'Strong foundation in Java/Spring Boot, Python/FastAPI, and Go for building scalable server-side applications and APIs.',
+    title: 'Backend & Systems Development',
+    description: 'Architecting high-throughput backend services and concurrent network tooling leveraging Go, Rust, Java (Spring Boot), and Python (FastAPI).',
   },
   {
-    icon: Code,
-    title: 'Systems Programming',
-    description: 'Rust and Go projects demonstrate interest in performance-critical, low-level systems work.',
-  },
-  {
-    icon: Target,
-    title: 'DevOps & Infrastructure',
-    description: 'Docker containerization experience and network monitoring tools show infrastructure automation aptitude.',
+    icon: ShieldCheck,
+    title: 'Cloud & Infrastructure Security',
+    description: 'Hardening Linux/Unix and Windows AD environments, containerized Docker deployments, and cloud infrastructure with INE ICCA foundations.',
   },
 ];
 
 const Career = () => {
   return (
     <section id="career" className="py-24 px-6">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <BlurText
-          text="Career Direction"
+          text="Career Trajectory & Focus"
           className="text-3xl md:text-4xl font-bold mb-4 text-foreground justify-center"
-          delay={100}
+          delay={80}
           animateBy="words"
         />
         <ScrollReveal>
-          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
-            Based on my project portfolio and technical interests, I'm preparing for roles in:
+          <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
+            Combining software engineering rigor with offensive security expertise to build, audit, and secure critical infrastructure.
           </p>
         </ScrollReveal>
 
@@ -46,15 +46,17 @@ const Career = () => {
           {careerDirections.map((direction, index) => (
             <ScrollReveal key={direction.title} delay={index * 0.1}>
               <TiltCard
-                className="h-full p-6 bg-card/60 border border-border backdrop-blur-sm"
-                tiltAmount={6}
-                glareMaxOpacity={0.1}
+                className="h-full p-6 bg-card/60 border border-border backdrop-blur-sm rounded-lg hover:border-primary/40 transition-colors"
+                tiltAmount={4}
+                glareMaxOpacity={0.08}
               >
-                <direction.icon className="w-8 h-8 mb-4 text-primary" />
+                <div className="p-3 w-fit rounded-lg bg-primary/10 text-primary border border-primary/20 mb-4">
+                  <direction.icon className="w-6 h-6" />
+                </div>
                 <h3 className="text-lg font-semibold mb-2 text-foreground">
                   {direction.title}
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {direction.description}
                 </p>
               </TiltCard>
@@ -63,11 +65,10 @@ const Career = () => {
         </div>
 
         <ScrollReveal delay={0.4}>
-          <div className="mt-12 p-6 bg-secondary/20 border border-border">
-            <p className="text-muted-foreground text-center">
-              I'm looking for opportunities to contribute to teams building secure, scalable systems. 
-              Whether it's backend services, security tools, or infrastructure automation, 
-              I bring hands-on experience and a commitment to writing quality code.
+          <div className="mt-12 p-6 md:p-8 bg-card/40 border border-border/80 rounded-lg text-center backdrop-blur-sm">
+            <h4 className="text-base font-semibold text-foreground mb-2">Open to Opportunities</h4>
+            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Seeking Junior Penetration Tester, Security Engineer, or Backend Developer roles. I bring a strong work ethic, certified offensive security competence (eJPT, ICCA), and deep software development abilities.
             </p>
           </div>
         </ScrollReveal>
@@ -77,3 +78,4 @@ const Career = () => {
 };
 
 export default Career;
+

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Shield, Terminal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Magnet from '@/components/effects/Magnet';
 import GradientText from '@/components/effects/GradientText';
@@ -7,9 +7,10 @@ import GradientText from '@/components/effects/GradientText';
 const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#skills', label: 'Skills' },
+  { href: '#experience', label: 'Experience & Certs' },
   { href: '#projects', label: 'Projects' },
   { href: '#github', label: 'GitHub' },
-  { href: '#career', label: 'Career' },
+  { href: '#career', label: 'Career Focus' },
 ];
 
 const Navigation = () => {
@@ -34,19 +35,19 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-border' : ''
+        isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-border shadow-sm' : ''
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Magnet padding={50} magnetStrength={4}>
-            <a href="#" className="group relative">
-              <div className="flex items-center gap-1">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 via-indigo-500 to-purple-600 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white font-bold text-sm">&lt;/&gt;</span>
-                </div>
-                <span className="text-xs text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity duration-300 ml-1">dev</span>
+            <a href="#" className="group relative flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 via-indigo-600 to-pink-500 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-sm shadow-purple-500/20">
+                <Shield className="w-4 h-4 text-white" />
               </div>
+              <span className="font-semibold text-sm tracking-tight text-foreground group-hover:text-primary transition-colors">
+                Amitabh <span className="text-primary">Mor3y</span>
+              </span>
             </a>
           </Magnet>
 

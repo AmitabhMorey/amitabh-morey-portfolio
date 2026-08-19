@@ -1,23 +1,84 @@
 import BlurText from '@/components/effects/BlurText';
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import TiltCard from '@/components/effects/TiltCard';
+import { ShieldAlert, Code2, ShieldCheck, ServerCog } from 'lucide-react';
 
 const skillCategories = [
   {
-    title: 'Programming Languages',
-    skills: ['TypeScript', 'Rust', 'Python', 'Java', 'Go', 'JavaScript', 'C++', 'Shell/Bash'],
+    icon: ShieldAlert,
+    title: 'Penetration Testing & Offensive Tools',
+    description: 'Reconnaissance, vulnerability scanning, exploitation, and post-exploitation tooling.',
+    skills: [
+      'Nmap',
+      'Burp Suite',
+      'Metasploit',
+      'Wireshark',
+      'BloodHound',
+      'SharpHound',
+      'CrackMapExec',
+      'Impacket',
+      'OWASP ZAP',
+      'SQLmap',
+      'Hydra',
+      'Gobuster',
+      'Dirb',
+      'Nikto',
+      'John the Ripper',
+      'Hashcat',
+      'Enum4linux',
+      'Netcat',
+      'BeEF',
+    ],
   },
   {
-    title: 'Frameworks & Libraries',
-    skills: ['Spring Boot', 'FastAPI', 'React', 'Docker'],
+    icon: Code2,
+    title: 'Languages & Systems Programming',
+    description: 'High-performance systems programming, backend engineering, and exploit automation.',
+    skills: [
+      'Python',
+      'Go',
+      'Rust',
+      'Java (Spring Boot 3)',
+      'Bash / Shell',
+      'TypeScript',
+      'C++',
+      'C',
+      'SQL',
+      'FastAPI',
+    ],
   },
   {
-    title: 'Tools & Platforms',
-    skills: ['Git', 'GitHub', 'Docker', 'Nmap', 'Shodan'],
+    icon: ShieldCheck,
+    title: 'Methodologies & Security Architecture',
+    description: 'Industry frameworks, threat simulation, attack paths, and defensive controls.',
+    skills: [
+      'OWASP Top 10',
+      'MITRE ATT&CK',
+      'PTES Framework',
+      'Active Directory Exploitation & Hardening',
+      'Kerberoasting & Pass-the-Hash',
+      'Vulnerability Assessment',
+      'Threat Simulation',
+      'AES-256 Encryption & Hashing',
+      'Authentication & RBAC',
+      'Technical Report Writing',
+    ],
   },
   {
-    title: 'Core Concepts',
-    skills: ['Network Security', 'Concurrent Programming', 'REST APIs', 'Authentication Systems', 'Encryption (AES-256)', 'System Design'],
+    icon: ServerCog,
+    title: 'Platforms, Labs & DevOps',
+    description: 'Practice environments, containerization, operating systems, and intelligence APIs.',
+    skills: [
+      'TryHackMe',
+      'Hack The Box',
+      'Windows Server AD',
+      'Docker',
+      'Linux / Unix Systems',
+      'Shodan API',
+      'Nmap API',
+      'Git & GitHub',
+      'Postman',
+    ],
   },
 ];
 
@@ -26,28 +87,43 @@ const Skills = () => {
     <section id="skills" className="py-24 px-6 bg-card/30">
       <div className="max-w-6xl mx-auto">
         <BlurText
-          text="Technical Skills"
-          className="text-3xl md:text-4xl font-bold mb-12 text-foreground justify-center"
-          delay={100}
+          text="Technical Arsenal"
+          className="text-3xl md:text-4xl font-bold mb-4 text-foreground justify-center"
+          delay={80}
           animateBy="words"
         />
+        <ScrollReveal>
+          <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+            A comprehensive toolkit spanning offensive security, vulnerability assessment, systems programming, and secure backend engineering.
+          </p>
+        </ScrollReveal>
         
         <div className="grid md:grid-cols-2 gap-8">
           {skillCategories.map((category, index) => (
             <ScrollReveal key={category.title} delay={index * 0.1}>
               <TiltCard 
-                className="h-full p-6 bg-card/60 border border-border backdrop-blur-sm"
-                tiltAmount={5}
-                glareMaxOpacity={0.1}
+                className="h-full p-6 bg-card/60 border border-border backdrop-blur-sm rounded-lg hover:border-primary/40 transition-colors flex flex-col justify-between"
+                tiltAmount={4}
+                glareMaxOpacity={0.08}
               >
-                <h3 className="text-xl font-semibold mb-4 text-foreground">
-                  {category.title}
-                </h3>
-                <div className="flex flex-wrap gap-2">
+                <div>
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="p-2 rounded-md bg-primary/10 text-primary border border-primary/20">
+                      <category.icon className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-foreground">
+                      {category.title}
+                    </h3>
+                  </div>
+                  <p className="text-xs text-muted-foreground mb-4">
+                    {category.description}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-1.5 mt-2">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-sm bg-secondary/50 text-secondary-foreground border border-border hover:bg-primary/20 hover:border-primary/50 transition-all duration-300"
+                      className="px-2.5 py-1 text-xs bg-secondary/40 text-foreground border border-border/80 rounded hover:bg-primary/20 hover:border-primary/50 hover:text-primary transition-all duration-200 font-mono"
                     >
                       {skill}
                     </span>
@@ -63,3 +139,4 @@ const Skills = () => {
 };
 
 export default Skills;
+
