@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, ShieldCheck } from "lucide-react";
+import { Mail, Phone, MapPin, ShieldCheck, FileText } from "lucide-react";
 import GradientText from "@/components/effects/GradientText";
 
 const Footer = () => {
@@ -24,6 +24,16 @@ const Footer = () => {
 
           {/* Direct Contact Buttons */}
           <div className="flex flex-wrap items-center justify-center md:justify-end gap-3">
+            <a
+              href="https://drive.google.com/drive/u/3/home"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 h-10 px-4 rounded-lg bg-card/60 border border-border hover:border-primary/50 text-foreground transition-all duration-200 hover:bg-primary/10 text-xs md:text-sm font-medium whitespace-nowrap shrink-0 shadow-sm"
+            >
+              <FileText className="w-4 h-4 text-purple-400 shrink-0" />
+              <span>Resume</span>
+            </a>
+
             <a
               href="mailto:amitabhmorey10@gmail.com"
               className="inline-flex items-center gap-2 h-10 px-4 rounded-lg bg-card/60 border border-border hover:border-primary/50 text-foreground transition-all duration-200 hover:bg-primary/10 text-xs md:text-sm font-medium whitespace-nowrap shrink-0 shadow-sm"

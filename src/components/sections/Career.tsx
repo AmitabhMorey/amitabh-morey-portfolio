@@ -1,7 +1,8 @@
-import { ShieldAlert, Code, ShieldCheck, Server, Terminal, Lock } from 'lucide-react';
+import { ShieldAlert, Code, ShieldCheck, Server, Terminal, Lock, FileText, Mail } from 'lucide-react';
 import BlurText from '@/components/effects/BlurText';
 import ScrollReveal from '@/components/effects/ScrollReveal';
 import TiltCard from '@/components/effects/TiltCard';
+import { Button } from '@/components/ui/button';
 
 const careerDirections = [
   {
@@ -67,9 +68,33 @@ const Career = () => {
         <ScrollReveal delay={0.4}>
           <div className="mt-12 p-6 md:p-8 bg-card/40 border border-border/80 rounded-lg text-center backdrop-blur-sm">
             <h4 className="text-base font-semibold text-foreground mb-2">Open to Opportunities</h4>
-            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-6">
               Seeking Junior Penetration Tester, Security Engineer, or Backend Developer roles. I bring a strong work ethic, certified offensive security competence (eJPT, ICCA), and deep software development abilities.
             </p>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Button
+                variant="default"
+                size="sm"
+                className="gap-2 shadow-md shadow-primary/20 hover:shadow-primary/30"
+                asChild
+              >
+                <a href="https://drive.google.com/drive/u/3/home" target="_blank" rel="noopener noreferrer">
+                  <FileText className="w-4 h-4" />
+                  View Resume
+                </a>
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                className="gap-2 border-primary/30 hover:border-primary hover:bg-primary/10"
+                asChild
+              >
+                <a href="mailto:amitabhmorey10@gmail.com">
+                  <Mail className="w-4 h-4 text-primary" />
+                  Get in Touch
+                </a>
+              </Button>
+            </div>
           </div>
         </ScrollReveal>
       </div>

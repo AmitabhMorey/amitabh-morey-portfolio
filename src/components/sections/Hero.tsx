@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, ChevronDown, ShieldCheck, Terminal, ArrowRight } from 'lucide-react';
+import { Github, Linkedin, ChevronDown, ShieldCheck, Terminal, ArrowRight, FileText } from 'lucide-react';
 import GradientText from '@/components/effects/GradientText';
 import BlurText from '@/components/effects/BlurText';
 import Magnet from '@/components/effects/Magnet';
@@ -51,7 +51,21 @@ const Hero = () => {
               <Button
                 variant="default"
                 size="lg"
-                className="gap-2 shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all"
+                className="gap-2 shadow-lg shadow-primary/25 hover:shadow-primary/40 bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 hover:opacity-95 text-white transition-all duration-300"
+                asChild
+              >
+                <a href="https://drive.google.com/drive/u/3/home" target="_blank" rel="noopener noreferrer">
+                  <FileText className="w-4 h-4" />
+                  Resume
+                </a>
+              </Button>
+            </Magnet>
+
+            <Magnet padding={60} magnetStrength={3}>
+              <Button
+                variant="outline"
+                size="lg"
+                className="gap-2 border-primary/30 hover:border-primary hover:bg-primary/10 transition-all"
                 asChild
               >
                 <a href="https://github.com/AmitabhMorey" target="_blank" rel="noopener noreferrer">

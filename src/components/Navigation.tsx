@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Shield, Terminal } from 'lucide-react';
+import { Menu, X, Shield, Terminal, FileText, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Magnet from '@/components/effects/Magnet';
 import GradientText from '@/components/effects/GradientText';
@@ -65,6 +65,20 @@ const Navigation = () => {
                 </a>
               </Magnet>
             ))}
+
+            <Magnet padding={30} magnetStrength={4}>
+              <Button
+                size="sm"
+                variant="outline"
+                className="gap-1.5 border-primary/30 hover:border-primary hover:bg-primary/10 text-xs font-medium"
+                asChild
+              >
+                <a href="https://drive.google.com/drive/u/3/home" target="_blank" rel="noopener noreferrer">
+                  <FileText className="w-3.5 h-3.5 text-primary" />
+                  Resume
+                </a>
+              </Button>
+            </Magnet>
           </div>
 
           {/* Mobile Menu Button */}
@@ -92,6 +106,18 @@ const Navigation = () => {
                   {link.label}
                 </a>
               ))}
+              <a
+                href="https://drive.google.com/drive/u/3/home"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-between text-primary font-medium pt-3 border-t border-border/60"
+              >
+                <span className="inline-flex items-center gap-2">
+                  <FileText className="w-4 h-4" />
+                  Resume
+                </span>
+                <ExternalLink className="w-4 h-4 opacity-70" />
+              </a>
             </div>
           </div>
         )}
@@ -101,3 +127,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
